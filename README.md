@@ -1,21 +1,22 @@
-# DOST-AI-Privacy
+# DOST
 
-**DOST** (**D**etect, **O**bserve, **S**hield, **T**ransfer) is a lightweight, ultra-fast inline **AI Data Loss Prevention (DLP) and privacy proxy appliance** designed to protect sensitive enterprise data when employees and autonomous agents interact with cloud LLMs (such as ChatGPT, Claude, Cursor, and Claude Code).
+DOST is a proposed enterprise suite for making AI-assisted engineering workflows secure and efficient. Teams keep their choice of models, assistants, agents and working style.
 
-**Website:** [https://dost-ai-privacy.github.io/DOST-AI-Privacy/](https://dost-ai-privacy.github.io/DOST-AI-Privacy/)
+- **Workflow security.** The DOST proxy masks sensitive values in outbound model requests and restores matched values in replies. Managed installation checks and tool policies handle covered skills, MCP servers and packages.
+- **Team analytics.** The planned Control Center brings together security decisions, model usage, costs and work outcomes from connected systems.
+- **Adoption program.** Developer training and analytics-led consultations help teams choose and measure improvements in their existing workflows.
 
-## Overview
+The [public site](https://dost-ai-privacy.github.io/DOST-AI-Privacy/) is a static page served by GitHub Pages. The walkthrough and dashboard use illustrative data.
 
-- **Core Innovation:** Instead of destroying text with irreversible `[REDACTED]` tags—which ruins LLM reasoning and breaks code generation—DOST performs **silent, stateful, reversible pseudonymization**.
-- **Mechanism:** Outbound sensitive entities (secrets, PII, company codenames, Person IDs) are swapped with structured placeholders (e.g., `Company_Alpha`). On the inbound Server-Sent Events (SSE) response stream, a sliding-window micro-buffer translates those placeholders back into the original data in real time with sub-20ms latency.
-- **Detection Pipeline:** Uses a 2-stage detection pipeline combining microsecond keyword/regex scanning (Aho-Corasick, Google RE2) with quantized tiny ML models (GLiNER & GLiClass) to separate public context from confidential data.
+## Preview
 
-## The Four Pillars
+Open `index.html` in a browser, or serve the checkout locally:
 
-1. **Detect:** Microsecond 2-stage scanning (Google RE2, Aho-Corasick, GLiNER) filtering out false positives.
-2. **Observe:** Millisecond ML model classification (GLiNER & GLiClass) determining whether data is sensitive in context.
-3. **Shield:** Stateful reversible pseudonymization of private data that shouldn't leave the perimeter (e.g., Person ID, internal codenames, secrets).
-4. **Transfer:** Seamless sliding-window SSE streamer restoring real values on inbound traffic with sub-20ms latency across all LLM providers and agentic tools.
+```bash
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+Open `http://127.0.0.1:8000` to review the page. Use a pull request for changes.
 
 ## Maintainers
 
