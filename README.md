@@ -1,21 +1,14 @@
-# DOST-AI-Privacy
+# DOST
 
-**DOST** (**D**etect, **O**bserve, **S**hield, **T**ransfer) is a lightweight, ultra-fast inline **AI Data Loss Prevention (DLP) and privacy proxy appliance** designed to protect sensitive enterprise data when employees and autonomous agents interact with cloud LLMs (such as ChatGPT, Claude, Cursor, and Claude Code).
+**DOST** is a tool-agnostic suite for making AI-assisted engineering workflows secure and measurable. Teams keep the LLMs, editors, and coding agents they already choose, security and platform teams enforce data, MCP, and tool policies automatically in the background, and engineering leaders see how AI usage relates to completed work and coaching opportunities.
 
 **Website:** [https://dost-ai-privacy.github.io/DOST-AI-Privacy/](https://dost-ai-privacy.github.io/DOST-AI-Privacy/)
 
-## Overview
+## Core Capabilities
 
-- **Core Innovation:** Instead of destroying text with irreversible `[REDACTED]` tags—which ruins LLM reasoning and breaks code generation—DOST performs **silent, stateful, reversible pseudonymization**.
-- **Mechanism:** Outbound sensitive entities (secrets, PII, company codenames, Person IDs) are swapped with structured placeholders (e.g., `Company_Alpha`). On the inbound Server-Sent Events (SSE) response stream, a sliding-window micro-buffer translates those placeholders back into the original data in real time with sub-20ms latency.
-- **Detection Pipeline:** Uses a 2-stage detection pipeline combining microsecond keyword/regex scanning (Aho-Corasick, Google RE2) with quantized tiny ML models (GLiNER & GLiClass) to separate public context from confidential data.
-
-## The Four Pillars
-
-1. **Detect:** Microsecond 2-stage scanning (Google RE2, Aho-Corasick, GLiNER) filtering out false positives.
-2. **Observe:** Millisecond ML model classification (GLiNER & GLiClass) determining whether data is sensitive in context.
-3. **Shield:** Stateful reversible pseudonymization of private data that shouldn't leave the perimeter (e.g., Person ID, internal codenames, secrets).
-4. **Transfer:** Seamless sliding-window SSE streamer restoring real values on inbound traffic with sub-20ms latency across all LLM providers and agentic tools.
+- **Background Protection:** Reversible inline PII and reference masking (keeping recognized credentials out of the reversible map), pre-activation admission checks for skills, MCP servers, extensions, and packages, untrusted web/tool prompt-injection guardrails, and autonomous agent fallback with zero extra developer confirmation steps.
+- **Dual-View Control Center:** Links covered workflows to work items (starting with read-only Jira) without storing raw prompts, replies, or ticket text, providing a **Security & Platform** view (policy blocks, masking events, explicit route coverage) and an **Engineering Leadership** view (adoption, spend per completed issue, separated run/active/cycle times, rework, and team-scoped coaching leads).
+- **Guided Adoption Program:** Pairs the software with tailored developer secure-use lessons, analytics-led consultations, and baseline-to-follow-up outcome reviews across flexible deployment modes (explicit gateway + agent host, optional on-device adapter, or managed network proxy).
 
 ## Maintainers
 
